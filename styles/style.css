@@ -1,0 +1,297 @@
+/* ============================
+   CORE VARIABLES & RESET
+============================ */
+:root {
+  --bg: #0b0f1a;
+  --card: #0f1724;
+  --accent: #c24b3a;
+  --muted: #98a0b3;
+  --glass: rgba(255,255,255,0.03);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg) 0%, #071022 100%);
+  color: #e6eef8;
+  line-height: 1.45;
+  position: relative;
+}
+
+/* ============================
+   BACKGROUND PAPYRUS OVERLAY
+============================ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/Papyrus.png");
+  background-size: 600px;
+  background-repeat: repeat;
+  opacity: 0.10;  
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============================
+   LAYOUT & GENERAL STYLES
+============================ */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.brand .dot {
+  color: var(--accent);
+}
+
+nav {
+  position: relative;
+}
+
+#nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--glass);
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.nav-list a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+/* ============================
+   HERO & ASIDE
+============================ */
+.hero {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 28px 0;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.profile-aside {
+  width: 260px;
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-aside img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.bio h3 {
+  margin: 0;
+}
+
+.profile-aside audio {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* ============================
+   GALLERY SLIDER
+============================ */
+.gallery .slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slides {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #08101b;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slides img {
+  max-width: 100%;
+  display: none;
+}
+
+.slides img.active {
+  display: block;
+}
+
+.prev, .next {
+  background: none;
+  border: 1px solid var(--glass);
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.03);
+  padding: 18px 0;
+  margin-top: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media(max-width:800px){
+  .hero {
+    flex-direction: column;
+  }
+  .profile-aside {
+    width: 100%;
+  }
+  .nav-list {
+    display: none;
+  }
+  #nav-toggle {
+    display: inline-block;
+  }
+  #nav-list.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: var(--card);
+    padding: 8px;
+    border-radius: 8px;
+  }
+}
+
+/* ============================
+   HIEROGLYPH HEADER
+============================ */
+.hieroglyphs {
+  font-size: 1.4rem;
+  margin-top: -8px;
+  color: #d4b46a;
+  letter-spacing: 4px;
+  opacity: 0.85;
+  user-select: none;
+}
+
+/* ============================
+   ANCIENT MODE BUTTON
+============================ */
+.ancient-btn {
+  margin-left: 16px;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 215, 128, 0.3);
+  color: #d8c38a;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ancient-btn:hover {
+  background: rgba(255, 215, 128, 0.1);
+}
+
+/* ============================
+   ANCIENT MODE — EGYPT VIBES
+============================ */
+.ancient-mode {
+  background-color: rgba(0,0,0,0.08);
+  background-blend-mode: multiply;
+  color: #2b1603 !important;
+}
+
+.ancient-mode h1,
+.ancient-mode h2,
+.ancient-mode h3,
+.ancient-mode p,
+.ancient-mode a,
+.ancient-mode li {
+  color: #2b1603 !important;
+}
+
+.ancient-mode .brand,
+.ancient-mode .hieroglyphs {
+  color: #8a5c0a !important;
+}
+
+.ancient-mode .hieroglyphs {
+  text-shadow: 0 0 8px rgba(240, 180, 50, 0.6);
+}
+
+.ancient-mode .profile-aside,
+.ancient-mode .slider,
+.ancient-mode footer,
+.ancient-mode .container,
+.ancient-mode article,
+.ancient-mode section {
+  background: rgba(255, 255, 240, 0.45);
+  border-radius: 10px;
+  backdrop-filter: blur(1px);
+}
+
+/* ============================
+   ANCIENT RECORDS SECTION
+============================ */
+.ancient-section {
+  background: rgba(255, 245, 200, 0.05);
+  padding: 20px;
+  border-left: 4px solid #caa45f;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.glyph-block {
+  font-size: 1.8rem;
+  letter-spacing: 6px;
+  color: #d2b06e;
+  margin-bottom: 14px;
+  user-select: none;
+}
