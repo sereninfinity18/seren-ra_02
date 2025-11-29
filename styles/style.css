@@ -1,8 +1,9 @@
-/* ============================
+/* =====================================================
    CORE VARIABLES & RESET
-============================ */
+===================================================== */
 :root {
   --bg: #0b0f1a;
+  --bg-grad-end: #071022;
   --card: #0f1724;
   --accent: #c24b3a;
   --muted: #98a0b3;
@@ -15,34 +16,28 @@
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg, var(--bg) 0%, #071022 100%);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, var(--bg), var(--bg-grad-end));
   color: #e6eef8;
   line-height: 1.45;
   position: relative;
 }
 
-/* ============================
-   BACKGROUND PAPYRUS OVERLAY
-============================ */
+/* Papyrus background overlay */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../assets/Papyrus.png");
+  inset: 0;
+  background: url("../assets/Papyrus.png") repeat;
   background-size: 600px;
-  background-repeat: repeat;
-  opacity: 0.10;  
-  z-index: -1;
+  opacity: 0.10;
   pointer-events: none;
+  z-index: -1;
 }
 
-/* ============================
-   LAYOUT & GENERAL STYLES
-============================ */
+/* =====================================================
+   GLOBAL LAYOUT
+===================================================== */
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -51,8 +46,8 @@ body::before {
 
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .brand {
@@ -64,6 +59,9 @@ body::before {
   color: var(--accent);
 }
 
+/* =====================================================
+   NAVIGATION
+===================================================== */
 nav {
   position: relative;
 }
@@ -75,25 +73,26 @@ nav {
   padding: 8px;
   border-radius: 6px;
   color: var(--muted);
+  cursor: pointer;
 }
 
 .nav-list {
+  display: flex;
+  gap: 12px;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  gap: 12px;
 }
 
 .nav-list a {
   color: var(--muted);
-  text-decoration: none;
   font-size: 0.95rem;
+  text-decoration: none;
 }
 
-/* ============================
-   HERO & ASIDE
-============================ */
+/* =====================================================
+   HERO + PROFILE ASIDE
+===================================================== */
 .hero {
   display: flex;
   gap: 20px;
@@ -110,21 +109,16 @@ nav {
   background: var(--card);
   padding: 16px;
   border-radius: 12px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 12px;
 }
 
 .profile-aside img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
   object-fit: cover;
-}
-
-.bio h3 {
-  margin: 0;
 }
 
 .profile-aside audio {
@@ -132,9 +126,13 @@ nav {
   margin-top: 12px;
 }
 
-/* ============================
+.bio h3 {
+  margin: 0;
+}
+
+/* =====================================================
    GALLERY SLIDER
-============================ */
+===================================================== */
 .gallery .slider {
   display: flex;
   align-items: center;
@@ -144,11 +142,10 @@ nav {
 .slides {
   flex: 1;
   overflow: hidden;
-  border-radius: 10px;
-  background: #08101b;
   padding: 12px;
+  background: #08101b;
+  border-radius: 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -161,7 +158,8 @@ nav {
   display: block;
 }
 
-.prev, .next {
+.prev,
+.next {
   background: none;
   border: 1px solid var(--glass);
   padding: 8px;
@@ -170,48 +168,47 @@ nav {
   cursor: pointer;
 }
 
-/* ============================
-   FOOTER
-============================ */
-footer {
-  border-top: 1px solid rgba(255,255,255,0.03);
-  padding: 18px 0;
-  margin-top: 24px;
-  text-align: center;
-  color: var(--muted);
+/* =====================================================
+   JS PLAYGROUND
+===================================================== */
+#js-input {
+  width: 100%;
+  height: 180px;
+  padding: 12px;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-family: monospace;
 }
 
-/* ============================
-   RESPONSIVE
-============================ */
-@media(max-width:800px){
-  .hero {
-    flex-direction: column;
-  }
-  .profile-aside {
-    width: 100%;
-  }
-  .nav-list {
-    display: none;
-  }
-  #nav-toggle {
-    display: inline-block;
-  }
-  #nav-list.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background: var(--card);
-    padding: 8px;
-    border-radius: 8px;
-  }
+.js-controls {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
 }
 
-/* ============================
-   HIEROGLYPH HEADER
-============================ */
+#js-output {
+  width: 100%;
+  min-height: 100px;
+  background: #000;
+  color: #0f0;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  border: 1px solid #333;
+}
+
+.btn.reset {
+  background: #444;
+}
+
+
+/* =====================================================
+   ANCIENT MODE — EGYPT VIBES
+===================================================== */
 .hieroglyphs {
   font-size: 1.4rem;
   margin-top: -8px;
@@ -221,27 +218,22 @@ footer {
   user-select: none;
 }
 
-/* ============================
-   ANCIENT MODE BUTTON
-============================ */
 .ancient-btn {
   margin-left: 16px;
   padding: 6px 14px;
   background: transparent;
-  border: 1px solid rgba(255, 215, 128, 0.3);
-  color: #d8c38a;
+  border: 1px solid rgba(255,215,128,0.3);
   border-radius: 6px;
+  color: #d8c38a;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .ancient-btn:hover {
-  background: rgba(255, 215, 128, 0.1);
+  background: rgba(255,215,128,0.1);
 }
 
-/* ============================
-   ANCIENT MODE — EGYPT VIBES
-============================ */
+/* Ancient mode overrides */
 .ancient-mode {
   background-color: rgba(0,0,0,0.08);
   background-blend-mode: multiply;
@@ -263,29 +255,29 @@ footer {
 }
 
 .ancient-mode .hieroglyphs {
-  text-shadow: 0 0 8px rgba(240, 180, 50, 0.6);
+  text-shadow: 0 0 8px rgba(240,180,50,0.6);
 }
 
-.ancient-mode .profile-aside,
-.ancient-mode .slider,
-.ancient-mode footer,
-.ancient-mode .container,
+.ancient-mode section,
 .ancient-mode article,
-.ancient-mode section {
-  background: rgba(255, 255, 240, 0.45);
+.ancient-mode footer,
+.ancient-mode .slider,
+.ancient-mode .profile-aside,
+.ancient-mode .container {
+  background: rgba(255,255,240,0.45);
   border-radius: 10px;
   backdrop-filter: blur(1px);
 }
 
-/* ============================
-   ANCIENT RECORDS SECTION
-============================ */
+/* =====================================================
+   ANCIENT RECORDS
+===================================================== */
 .ancient-section {
-  background: rgba(255, 245, 200, 0.05);
+  margin-top: 40px;
   padding: 20px;
+  background: rgba(255,245,200,0.05);
   border-left: 4px solid #caa45f;
   border-radius: 8px;
-  margin-top: 40px;
 }
 
 .glyph-block {
@@ -294,4 +286,47 @@ footer {
   color: #d2b06e;
   margin-bottom: 14px;
   user-select: none;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  margin-top: 24px;
+  padding: 18px 0;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .profile-aside {
+    width: 100%;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  #nav-toggle {
+    display: inline-block;
+  }
+
+  #nav-list.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: var(--card);
+    padding: 8px;
+    border-radius: 8px;
+  }
 }

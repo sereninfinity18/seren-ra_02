@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="id">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Seren Ra — Portal</title>
-        <link rel="stylesheet" href="styles/style.css" />
-        </head>
- <body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Seren Ra — Portal</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
     <header>
         <div class="container header-inner">
             <h1 class="brand">Seren<span class="dot">-</span>Ra</h1>
             <div class="hieroglyphs">𓋴𓂋𓈖 – 𓂋𓄿</div>
+
             <nav>
                 <button id="ancient-toggle" class="ancient-btn">Ancient Mode</button>
 
@@ -25,10 +27,12 @@
     </header>
 
     <main>
+        <!-- HERO SECTION -->
         <section id="home" class="hero container">
             <div class="hero-left">
-                <h2>Seren-Ra Web Playgorund</h2>
-                <p>Portal pembelajaran web development. Berisi eksperimen, konsep visual, dan interaksi yang sedang aku pelajari. </p>
+                <h2>Seren-Ra Web Playground</h2>
+                <p>Portal pembelajaran web development. Berisi eksperimen, konsep visual, dan interaksi yang sedang aku pelajari.</p>
+
                 <div class="cta">
                     <a href="#gallery" class="btn">Lihat Gallery</a>
                 </div>
@@ -36,9 +40,10 @@
 
             <aside aria-label="Profil" class="profile-aside">
                 <img src="assets/Seren Ra Egyptian.png" alt="Seren Ra" />
+
                 <div class="bio">
                     <h3>Seren-Ra</h3>
-                    <p>Penguasa Multiverse, sodara jauh Altman </p>
+                    <p>Penguasa Multiverse, sodara jauh Altman</p>
                 </div>
 
                 <audio controls>
@@ -47,67 +52,119 @@
             </aside>
         </section>
 
-        <section id="about" class="container">
-            <article>
-                <h2>Lore & Konsep</h2>
-                <p>Seren mewakili keseimbangan ; Ra mewakili energi mentah. Di sini kita jelajahi visual, audio-visual cue, dan mekanik interaktif sederhana. </p>
-                <h3>Elemen yang diterapkan</h3>
-                <p>Pada website ini, saya menerapkan beberapa interaksi sederhana menggunakan JavaScript untuk memberikan pengalaman yang lebih dinamis bagi pengguna:</p>
-                <ul>
-      <li><strong>Responsive Navigation:</strong> Pada layar kecil, tombol menu dapat ditekan untuk menampilkan atau menyembunyikan navigasi.</li>
-      <li><strong>Image Slider:</strong> Bagian Gallery memiliki slider gambar yang dapat dikendalikan dengan tombol prev/next serta berjalan otomatis setiap beberapa detik.</li>
-      <li><strong>Ancient Mode:</strong> Tombol “Ancient Mode” di bagian header memungkinkan pengguna mengubah tampilan website menjadi tema Mesir Kuno.</li>
-    </ul>
-    <p>Seluruh interaksi di atas dibuat menggunakan JavaScript murni tanpa library tambahan.</p>
-            </article>
-        </section>
+       <!-- LORE / ABOUT -->
+<section id="about" class="container">
+    <article>
+        <h2>Lore & Konsep</h2>
+        <p>
+            Seren itu vibe-nya keseimbangan dan ketenangan; Ra itu energi liar yang nge-blast kayak matahari. 
+            Website ini basically jadi playground buat nyoba visual, audio cues, sama interaksi-interaksi kecil yang bikin pengalaman makin hidup.
+        </p>
 
+        <h3>Apa aja yang gue terapin?</h3>
+        <p>
+            Karena masa depan itu interaktif (cieh), gue masukin beberapa fitur yang bikin halaman ini 
+            lebih asik dipake tanpa perlu library ribet:
+        </p>
+
+        <ul>
+            <li><strong>Responsive Navigation:</strong> Navbar auto-switch mode kalau layar kecil. Klik tombol → muncul. Klik lagi → hilang. Simple, clean.</li>
+
+            <li><strong>Image Slider:</strong> Gallery punya slider yang bisa lo klik prev/next, plus autoplay biar gak dead-content.</li>
+
+            <li><strong>Ancient Mode:</strong> Mode Mesir Kuno yang ubah seluruh tone halaman jadi papirus-vibes. 
+                Cocok kalau mau ng-roleplay jadi high priestess.</li>
+
+            <li><strong>Theme Switcher (Dark/Light/Ancient):</strong> Mode modern biar user bebas pilih style yang paling cocok ama mood.</li>
+
+            <li><strong>Semantic Layout:</strong> HTML gue pake struktur rapi (header, main, article, aside, footer) kayak manusia beradab.</li>
+
+            <li><strong>Flexbox Layout:</strong> Semua layout disusun pake Flexbox — no float-float cringe era 2000-an.</li>
+
+            <li><strong>Vanilla JavaScript Only:</strong> Zero framework. Pure JS. Clean, ringan, langsung nendang.</li>
+
+            <li><strong>Asset Management Rapi:</strong> Semua gambar, audio, dan style dipisah folder biar gak jadi warung campur aduk.</li>
+        </ul>
+
+        <p>
+            Intinya: website ini kecil, tapi crafted dengan hati — biar smooth, simple, dan punya sedikit 
+            bumbu *“Seren-Ra energy”* 😌🚀.
+        </p>
+    </article>
+</section>
+
+
+        <!-- JS PLAYGROUND -->
+<section id="js-playground" class="container">
+    <article>
+        <h2>JavaScript Playground</h2>
+        <p>Tempat latihan JavaScript langsung di browser. Tulis kode → klik RUN → lihat hasilnya!</p>
+
+        <textarea id="js-input" placeholder="console.log('Hello Seren-Ra!')"></textarea>
+
+        <div class="js-controls">
+            <button id="run-js" class="btn">RUN</button>
+            <button id="reset-js" class="btn reset">RESET</button>
+        </div>
+
+        <pre id="js-output">/* Output muncul di sini */</pre>
+    </article>
+</section>
+
+
+        <!-- GALLERY -->
         <section id="gallery" class="container gallery">
             <h2>Gallery</h2>
+
             <div class="slider" id="slider">
                 <button class="prev" aria-label="Sebelumnya">&lt;</button>
+
                 <div class="slides">
                     <img src="assets/Seren-Throne.png" alt="Slide 1" class="active" />
                     <img src="assets/Seren Ra Egyptian.png" alt="Slide 2" />
                 </div>
+
                 <button class="next" aria-label="Selanjutnya">&gt;</button>
             </div>
         </section>
 
+        <!-- ANCIENT RECORDS -->
         <section id="ancient-records" class="container">
             <article class="ancient-section">
                 <h2>Ancient Records</h2>
+
                 <p class="glyph-block">
                     𓇳𓇋𓏏 𓋴𓂋𓈖 𓂋𓄿 𓂋𓏤𓈖𓏏𓏤 𓇼𓏏𓆑
-                    </p>
-                    <p>These glyphs represent an artistic reconstruction inspired by ancient Egyptian
-      inscriptions, honoring the dual essence of Seren and Ra.
-      </p>
-      </article>
-      </section>
+                </p>
 
+                <p>
+                    These glyphs represent an artistic reconstruction inspired by ancient Egyptian inscriptions,
+                    honoring the dual essence of Seren and Ra.
+                </p>
+            </article>
+        </section>
 
-
+        <!-- CONTACT -->
         <section id="contact" class="container">
             <article>
-                <h2>Student Notes</h2>
-                <p>Silakan lihat file <strong>StudentNotes.txt</strong> di root ZIP untuk deskripsi fitur JS dan cara mengakses. </p>
+                <h2>Contact & Profiles</h2>
+                <p>Kamu bisa cek perkembangan proyek dan repo lainnya di profil GitHub-ku:</p>
+
+                <div class="contact-links">
+                    <a href="https://github.com/sereninfinity18" target="_blank" class="btn">
+                        GitHub Profile → sereninfinity18
+                    </a>
+                </div>
             </article>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> Seren-Ra Project - Submission Dicoding</p>
+            <p>&copy; <span id="year"></span> Seren-Ra Project - Web Playground</p>
         </div>
     </footer>
 
-    
     <script src="scripts/main.js"></script>
-    </body>
-    </html>
-
-
-
-
-
+</body>
+</html>
